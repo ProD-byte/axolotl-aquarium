@@ -219,7 +219,8 @@ function sprache(l) {
 sprache(Q.get('lang') || 'de');
 if (parent !== window) {
   // Hoehe an die einbettende Seite melden, die antwortet mit ihrer Sprache
-  setInterval(() => parent.postMessage({ aquariumHoehe: document.documentElement.scrollHeight }, '*'), 1000);
+  // Hoehe des Inhalts (nicht des Fensters), damit das iframe auch wieder schrumpfen kann
+  setInterval(() => parent.postMessage({ aquariumHoehe: Math.ceil(document.querySelector('main').getBoundingClientRect().bottom + scrollY) + 8 }, '*'), 1000);
   addEventListener('message', e => { if (e.origin === 'https://daveslab.de' && e.data && e.data.aquariumSprache) sprache(e.data.aquariumSprache); });
 }
 
