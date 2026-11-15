@@ -18,19 +18,31 @@ iframe{display:block;width:100%;height:900px;border:0;margin-top:16px}
 </head>
 <body><main>
 <h1>Axolotl-Aquarium</h1>
-<p class="mute">Für den LILYGO T-Display-S3 · Version 11</p>
+<p class="mute"><span data-i="for">Für den LILYGO T-Display-S3</span> · Build 11</p>
 <div class="box">
 <h2>🔄 Update</h2>
-<p>Neue Firmware aufspielen – WLAN und Aquarium bleiben erhalten. Bei „Erase device?“ den Haken <b>nicht</b> setzen.</p>
-<esp-web-install-button manifest="manifest-update.json"><button slot="activate">⚡ Update installieren</button>
-<span slot="unsupported">Bitte Chrome oder Edge am Computer verwenden.</span><span slot="not-allowed">Nur über https möglich.</span></esp-web-install-button>
+<p data-i="up">Neue Firmware aufspielen – WLAN und Aquarium bleiben erhalten. Bei „Erase device?“ den Haken <b>nicht</b> setzen.</p>
+<esp-web-install-button manifest="manifest-update.json"><button slot="activate" data-i="upb">⚡ Update installieren</button>
+<span slot="unsupported" data-i="uns">Bitte Chrome oder Edge am Computer verwenden.</span><span slot="not-allowed">https only</span></esp-web-install-button>
 </div>
 <div class="box">
-<h2>🧹 Neuinstallation</h2>
-<p>Speicher komplett löschen und neu aufspielen – für neue Boards oder wenn nichts mehr geht. WLAN und Aquarium sind danach weg.</p>
-<esp-web-install-button manifest="manifest-neu.json"><button slot="activate">🗑️ Löschen &amp; neu installieren</button>
-<span slot="unsupported">Bitte Chrome oder Edge am Computer verwenden.</span><span slot="not-allowed">Nur über https möglich.</span></esp-web-install-button>
+<h2 data-i="neu">🧹 Neuinstallation</h2>
+<p data-i="neup">Speicher komplett löschen und neu aufspielen – für neue Boards oder wenn nichts mehr geht. WLAN und Aquarium sind danach weg.</p>
+<esp-web-install-button manifest="manifest-neu.json"><button slot="activate" data-i="neub">🗑️ Löschen &amp; neu installieren</button>
+<span slot="unsupported" data-i="uns2">Bitte Chrome oder Edge am Computer verwenden.</span><span slot="not-allowed">Nur über https möglich.</span></esp-web-install-button>
 </div>
-<iframe src="simulation.html" title="Simulation des Axolotl-Aquariums"></iframe>
+<iframe id="sim" src="simulation.html" title="Axolotl Aquarium simulation"></iframe>
+<script>
+// Sprache des Browsers: Deutsch, sonst Englisch (auch fuer die Simulation darunter)
+if (!(navigator.language || 'de').toLowerCase().startsWith('de')) {
+  const TX = {for: 'For the LILYGO T-Display-S3', up: 'Install new firmware – Wi-Fi and aquarium are kept. Do <b>not</b> tick “Erase device?”.',
+    upb: '⚡ Install update', uns: 'Please use Chrome or Edge on a computer.', uns2: 'Please use Chrome or Edge on a computer.', neu: '🧹 Fresh install',
+    neup: 'Erase everything and install from scratch – for new boards or when nothing works anymore. Wi-Fi and aquarium will be gone.',
+    neub: '🗑️ Erase &amp; install'};
+  document.documentElement.lang = 'en';
+  document.querySelectorAll('[data-i]').forEach(e => { if (TX[e.dataset.i]) e.innerHTML = TX[e.dataset.i]; });
+  document.getElementById('sim').src = 'simulation.html?lang=en';
+}
+</script>
 </main></body>
 </html>
