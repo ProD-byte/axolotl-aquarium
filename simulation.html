@@ -202,7 +202,7 @@ document.querySelectorAll('[data-c]').forEach(b => b.onclick = () => ex && ex.si
 
 // ---- Einbetten (daveslab.de) und Sprache: ?einbetten blendet Ueberschrift und Leistung aus, ?lang=en schaltet auf Englisch
 const Q = new URLSearchParams(location.search);
-if (Q.has('einbetten')) document.documentElement.classList.add('einbetten');
+if (Q.has('einbetten')) { document.documentElement.classList.add('einbetten'); document.documentElement.dataset.theme = 'dark'; }  // daveslab.de ist dunkel
 const EN = {
   lead: 'Simulation running exactly the same code as the T-Display-S3, compiled to WebAssembly. There is no Wi-Fi or sound here, and nothing is saved.',
   hint: 'Buttons like on the device: <b>BOOT</b> 1×, 2× or 3× for pellets, worms or water fleas, hold for a water change. <b>KEY</b> short for thoughts and details, hold for the status page. Keyboard: <kbd>B</kbd> and <kbd>K</kbd>.',
