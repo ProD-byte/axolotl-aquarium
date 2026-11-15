@@ -111,7 +111,8 @@ ${AQUARIUM_WEB}
 var AQUARIUM_SPRACHE = `addEventListener('message',function(e){if(e.origin==='https://prod-byte.github.io'&&e.data&&e.data.aquariumHoehe){var f=document.getElementById('dl-aquarium-sim');if(f){f.style.height=e.data.aquariumHoehe+'px';f.contentWindow.postMessage({aquariumSprache:document.documentElement.lang||'de'},'https://prod-byte.github.io');}}});
 (function(){function melde(){var l=document.documentElement.lang||'de',f=document.getElementById('dl-aquarium-sim'),a=document.querySelector('a[data-t="aq_auto_btn"]');if(a)a.href='${AQUARIUM_SEITE}/simulation.html?lang='+l;if(f&&f.contentWindow)f.contentWindow.postMessage({aquariumSprache:l},'https://prod-byte.github.io');}melde();new MutationObserver(melde).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});})();`;
 
-var AQUARIUM_SKRIPT = `fetch('${AQUARIUM_SEITE}/version.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){buildAquarium=j.build;setze(sprache);var f=document.getElementById('dl-aquarium-sim');if(f&&f.src.indexOf('&v=')<0)f.src+='&v='+(j.stand||j.build);}).catch(function(){});
+// Kein '&' im Skript: WordPress macht beim Anzeigen &#038; daraus. Der Versionsstempel laedt die Simulation nach jeder Aenderung frisch.
+var AQUARIUM_SKRIPT = `fetch('${AQUARIUM_SEITE}/version.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){buildAquarium=j.build;setze(sprache);var f=document.getElementById('dl-aquarium-sim');if(f){var u=new URL(f.src);if(!u.searchParams.has('v')){u.searchParams.set('v',j.stand||j.build);f.src=u.href;}}}).catch(function(){});
 ${AQUARIUM_SPRACHE}`;
 
 var AQUARIUM_EN = [
