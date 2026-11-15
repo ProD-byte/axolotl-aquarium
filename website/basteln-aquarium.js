@@ -92,7 +92,7 @@ var AQUARIUM_ABSCHNITT = `  <section class="dl-sec" id="aquarium">
         <li class="rv" data-t="aq_s2"><b>Anschluss auswählen.</b> Meist „USB JTAG/serial debug unit“ – ein Treiber ist nicht nötig.</li>
         <li class="rv" data-t="aq_s3"><b>Keine Verbindung?</b> Taste <b>BOOT</b> gedrückt halten, kurz <b>RST</b> an der Seite drücken, BOOT loslassen – nochmal versuchen.</li>
         <li class="rv" data-t="aq_s4"><b>WLAN einrichten</b> (nur beim ersten Mal): Mit dem Handy ins WLAN <b>„Axolotl-Aquarium“</b>, dein WLAN antippen, Passwort eingeben. Danach läuft die Uhr in Echtzeit und neue Versionen kommen nachts von selbst.</li>
-        <li class="rv" data-t="aq_s5"><b>Bedienen.</b> <b>BOOT</b> 1×, 2× oder 3× füttert Pellets, Würmer oder Wasserflöhe, lang drücken wechselt das Wasser. <b>KEY</b> zeigt Gedanken und Details der Axolotl, lang drücken die Statusseite.</li>
+        <li class="rv" data-t="aq_s5"><b>Bedienen.</b> <b>BOOT</b> 1×, 2× oder 3× füttert Pellets, Würmer oder Wasserflöhe, lang drücken wechselt das Wasser. <b>KEY</b> blättert durch Gedanken, Details der Axolotl und Statusseite, lang drücken schaltet zwischen Deutsch und Englisch.</li>
       </ol>
       <div class="dl-auto rv">
         <div>
@@ -125,7 +125,7 @@ var AQUARIUM_EN = [
   `aq_s2:'<b>Select the port.</b> Usually “USB JTAG/serial debug unit” – no driver needed.'`,
   `aq_s3:'<b>No connection?</b> Hold the <b>BOOT</b> button, briefly press <b>RST</b> on the side, release BOOT – try again.'`,
   `aq_s4:'<b>Set up Wi-Fi</b> (first time only): connect your phone to the Wi-Fi <b>“Axolotl-Aquarium”</b>, tap your Wi-Fi, enter the password. Then the clock runs in real time and new versions arrive by themselves at night.'`,
-  `aq_s5:'<b>Controls.</b> <b>BOOT</b> 1×, 2× or 3× feeds pellets, worms or water fleas, hold it for a water change. <b>KEY</b> shows the axolotls’ thoughts and details, hold it for the status page.'`,
+  `aq_s5:'<b>Controls.</b> <b>BOOT</b> 1×, 2× or 3× feeds pellets, worms or water fleas, hold it for a water change. <b>KEY</b> cycles through the axolotls’ thoughts, details and the status page, hold it to switch between German and English.'`,
   `aq_auto_h:'🦎 Full-size simulation'`,
   `aq_auto_p:'Day and night, feeding, water changes and all the effects to try out – running exactly the same code as the device. Firmware versions: ${AQUARIUM_GH}.'`,
   `aq_auto_btn:'Open simulation →'`,
