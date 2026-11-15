@@ -1,0 +1,16 @@
+{
+  "name": "Axolotl-Aquarium (Neuinstallation)",
+  "version": "3",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "aquarium-komplett.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}
